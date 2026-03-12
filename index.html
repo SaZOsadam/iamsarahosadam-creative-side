@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sarah Oladiran – Creative Portfolio</title>
+<meta name="description" content="Video editing, Graphic Design, and Social Media Content by Sarah Oladiran."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+:root{
+  --bg:#f4f5f7;
+  --white:#ffffff;
+  --border:#e3e6ec;
+  --navy:#1b2a3b;
+  --navy2:#243650;
+  --text:#1b2a3b;
+  --text2:#5b6a80;
+  --text3:#98a3b4;
+  --shadow-xs:0 1px 4px rgba(27,42,59,.07);
+  --shadow-sm:0 3px 14px rgba(27,42,59,.09);
+  --shadow-md:0 8px 28px rgba(27,42,59,.12);
+  --shadow-lg:0 18px 52px rgba(27,42,59,.16);
+  --r:10px;--r2:7px;
+  --head:'DM Serif Display',Georgia,serif;
+  --body:'DM Sans',system-ui,sans-serif;
+}
+body{font-family:var(--body);background:var(--bg);color:var(--text);line-height:1.65}
+img,iframe{max-width:100%;display:block}
+a{color:var(--navy);text-decoration:none}
+::selection{background:#1b2a3b20}
+
+/* scrollbar */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:var(--bg)}
+::-webkit-scrollbar-thumb{background:#cdd2db;border-radius:3px}
+
+/* layout */
+.wrap{max-width:1060px;margin:0 auto;padding:0 28px}
+.section{padding:72px 0}
+.section-alt{background:var(--white)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .5s ease,transform .5s ease}
+.rv.in{opacity:1;transform:none}
+.rv.d1{transition-delay:.07s}.rv.d2{transition-delay:.14s}
+.rv.d3{transition-delay:.21s}.rv.d4{transition-delay:.28s}
+
+/* ── NAV ── */
+.nav{
+  position:sticky;top:0;z-index:200;
+  background:rgba(244,245,247,.93);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  height:56px;gap:12px;
+}
+.nav-brand{font-family:var(--head);font-size:.96rem;color:var(--navy);white-space:nowrap}
+.nav-links{display:flex;align-items:center;gap:2px;list-style:none}
+.nav-links a{
+  padding:5px 12px;font-size:.79rem;font-weight:500;
+  color:var(--text2);border-radius:6px;
+  transition:background .15s,color .15s;letter-spacing:.02em;
+}
+.nav-links a:hover{background:#1b2a3b0d;color:var(--navy)}
+.nav-links .ncta a{background:var(--navy);color:#fff!important;border-radius:6px}
+.nav-links .ncta a:hover{background:var(--navy2)}
+@media(max-width:640px){.nav-links{display:none}}
+
+/* ── HERO ── */
+.hero{
+  background:var(--navy);
+  padding:90px 0 80px;position:relative;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(rgba(255,255,255,.055) 1px,transparent 1px);
+  background-size:26px 26px;pointer-events:none;
+}
+.hero-inner{
+  position:relative;z-index:1;
+  display:flex;align-items:center;gap:48px;flex-wrap:wrap;
+}
+.hero-avatar{
+  width:96px;height:96px;flex-shrink:0;border-radius:50%;
+  background:rgba(255,255,255,.09);border:2px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  font-size:2.6rem;animation:fadeIn .7s ease;
+}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.hero-copy{flex:1;min-width:260px}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  padding:4px 13px;border:1px solid rgba(255,255,255,.18);
+  border-radius:99px;font-size:.7rem;font-weight:600;
+  letter-spacing:.09em;text-transform:uppercase;
+  color:rgba(255,255,255,.6);margin-bottom:20px;
+}
+.hero-badge::before{content:'●';font-size:.42rem;color:#6ee7b7}
+.hero h1{
+  font-family:var(--head);
+  font-size:clamp(2rem,4.6vw,3.3rem);
+  line-height:1.12;color:#fff;margin-bottom:14px;
+}
+.hero h1 em{font-style:italic;color:rgba(255,255,255,.7)}
+.hero-sub{
+  font-size:.95rem;color:rgba(255,255,255,.55);
+  max-width:450px;line-height:1.8;margin-bottom:32px;
+}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:10px 22px;border-radius:var(--r2);
+  font-family:var(--body);font-size:.82rem;font-weight:600;
+  letter-spacing:.02em;cursor:pointer;border:none;
+  transition:transform .15s,box-shadow .15s,background .15s;
+}
+.btn-light{background:#fff;color:var(--navy)}
+.btn-light:hover{transform:translateY(-1px);box-shadow:var(--shadow-md);color:var(--navy)}
+.btn-ghost{
+  background:rgba(255,255,255,.09);color:#fff;
+  border:1px solid rgba(255,255,255,.2);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.15);color:#fff}
+
+/* ── SECTION HEADER ── */
+.sec-hd{margin-bottom:42px}
+.sec-tag{
+  display:inline-block;padding:3px 11px;
+  background:#1b2a3b0d;border:1px solid #1b2a3b1a;
+  border-radius:99px;font-size:.67rem;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--navy2);
+  margin-bottom:10px;
+}
+.sec-title{
+  font-family:var(--head);
+  font-size:clamp(1.5rem,3vw,2rem);
+  color:var(--navy);margin-bottom:6px;line-height:1.2;
+  display:inline-block;position:relative;
+}
+.sec-title::after{
+  content:'';position:absolute;left:0;bottom:-5px;
+  width:34px;height:3px;background:var(--navy);border-radius:2px;
+}
+.sec-desc{font-size:.88rem;color:var(--text2);max-width:470px;margin-top:13px}
+
+/* ── ABOUT ── */
+.about-grid{
+  display:grid;grid-template-columns:200px 1fr;
+  gap:52px;align-items:center;
+}
+.about-visual{
+  aspect-ratio:1;border-radius:var(--r);
+  background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 100%);
+  display:flex;align-items:center;justify-content:center;
+  font-size:3.6rem;box-shadow:var(--shadow-lg);
+}
+.about-body p{font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:14px}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
+.chip{
+  padding:4px 13px;background:var(--bg);
+  border:1px solid var(--border);border-radius:99px;
+  font-size:.75rem;font-weight:500;color:var(--text2);
+}
+
+/* ── CARDS ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(286px,1fr));gap:20px}
+.card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow-xs);
+  transition:transform .2s,box-shadow .2s;
+}
+.card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+
+/* video thumb */
+.vid-thumb{
+  position:relative;aspect-ratio:16/9;
+  background:var(--navy);overflow:hidden;cursor:pointer;
+}
+.vid-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.vid-ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:linear-gradient(135deg,#1b2a3b 0%,#243650 100%);
+  transition:background .2s;
+}
+.vid-thumb:hover .vid-ph{background:linear-gradient(135deg,#243650 0%,#2f4a68 100%)}
+.play-ring{
+  width:50px;height:50px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.26);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.5);font-size:1.1rem;padding-left:3px;
+  transition:all .2s;
+}
+.vid-thumb:hover .play-ring{border-color:rgba(255,255,255,.65);color:#fff;background:rgba(255,255,255,.07)}
+.vid-lbl{font-size:.67rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.28)}
+
+/* image thumb */
+.img-thumb{aspect-ratio:4/3;background:#eef0f5;overflow:hidden;position:relative}
+.img-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.card:hover .img-thumb img{transform:scale(1.04)}
+.img-ph{
+  position:absolute;inset:0;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;
+  background:linear-gradient(135deg,#eef0f5 0%,#e3e7ee 100%);
+}
+.img-ph .ph-ico{font-size:2rem;opacity:.28}
+.img-ph .ph-lbl{font-size:.67rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--text3)}
+
+/* card body */
+.card-body{padding:17px 19px 19px}
+.card-cat{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:4px}
+.card-title{font-family:var(--head);font-size:1rem;color:var(--navy);margin-bottom:6px;line-height:1.3}
+.card-desc{font-size:.8rem;color:var(--text2);line-height:1.72;margin-bottom:15px}
+.card-actions{display:flex;align-items:center;gap:7px}
+.cbtn{
+  display:inline-flex;align-items:center;gap:5px;
+  padding:7px 14px;border-radius:6px;
+  font-family:var(--body);font-size:.77rem;font-weight:600;
+  letter-spacing:.02em;cursor:pointer;border:none;
+  transition:background .15s;
+}
+.cbtn-dark{background:var(--navy);color:#fff}
+.cbtn-dark:hover{background:var(--navy2)}
+.cbtn-line{background:none;color:var(--text2);border:1px solid var(--border)}
+.cbtn-line:hover{border-color:var(--text2);color:var(--text)}
+
+/* ── SKILLS ── */
+.skills-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(224px,1fr));gap:16px}
+.sk-card{
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r);padding:21px;box-shadow:var(--shadow-xs);
+  transition:transform .2s,box-shadow .2s;
+}
+.sk-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-sm)}
+.sk-ico{
+  width:40px;height:40px;border-radius:9px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;margin-bottom:12px;
+}
+.sk-card h4{font-family:var(--head);font-size:.92rem;color:var(--navy);margin-bottom:9px}
+.sk-tags{display:flex;flex-wrap:wrap;gap:5px}
+.sk-tag{
+  padding:3px 9px;background:var(--bg);
+  border:1px solid var(--border);border-radius:99px;
+  font-size:.7rem;font-weight:500;color:var(--text2);
+}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.contact-left h2{font-family:var(--head);font-size:clamp(1.6rem,3vw,2.1rem);color:var(--navy);line-height:1.2;margin-bottom:12px}
+.contact-left p{font-size:.91rem;color:var(--text2);line-height:1.85}
+.c-items{display:flex;flex-direction:column;gap:11px}
+.c-item{
+  display:flex;align-items:center;gap:13px;
+  padding:14px 17px;
+  background:var(--white);border:1px solid var(--border);
+  border-radius:var(--r2);box-shadow:var(--shadow-xs);
+  color:var(--text);transition:border-color .2s,box-shadow .2s,transform .2s;
+}
+.c-item:hover{border-color:var(--navy);box-shadow:var(--shadow-sm);transform:translateX(4px);color:var(--text)}
+.c-ico{
+  width:37px;height:37px;border-radius:8px;background:var(--navy);
+  display:flex;align-items:center;justify-content:center;font-size:.95rem;flex-shrink:0;
+}
+.c-info strong{display:block;font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:1px}
+.c-info span{font-size:.83rem;font-weight:500;color:var(--text)}
+
+/* ── MODAL ── */
+.overlay{
+  display:none;position:fixed;inset:0;z-index:500;
+  background:rgba(8,16,26,.78);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  align-items:center;justify-content:center;padding:20px;
+}
+.overlay.on{display:flex}
+.modal{
+  background:var(--white);border-radius:var(--r);
+  max-width:680px;width:100%;box-shadow:var(--shadow-lg);overflow:hidden;
+  animation:popIn .22s ease;
+}
+@keyframes popIn{from{transform:scale(.95);opacity:0}to{transform:scale(1);opacity:1}}
+.modal-hd{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:17px 21px;border-bottom:1px solid var(--border);
+}
+.modal-hd h3{font-family:var(--head);font-size:1.05rem;color:var(--navy)}
+.modal-close{
+  width:30px;height:30px;border-radius:50%;
+  background:var(--bg);border:1px solid var(--border);
+  cursor:pointer;display:flex;align-items:center;justify-content:center;
+  font-size:.82rem;color:var(--text2);transition:background .15s;
+}
+.modal-close:hover{background:var(--border)}
+.modal-bd{padding:22px}
+.modal-vid{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--navy)}
+.modal-vid iframe{width:100%;height:100%;border:none}
+.modal-empty{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;color:rgba(255,255,255,.35);font-size:.82rem;text-align:center;padding:24px;line-height:1.8;
+}
+.modal-empty code{
+  background:rgba(255,255,255,.1);padding:2px 7px;
+  border-radius:4px;font-size:.78rem;
+}
+.modal-img{border-radius:8px;overflow:hidden;background:var(--bg);aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;font-size:3.5rem}
+.modal-desc{margin-top:15px;font-size:.85rem;color:var(--text2);line-height:1.78}
+
+/* ── FOOTER ── */
+footer{background:var(--navy);padding:26px 0;text-align:center}
+footer p{font-size:.76rem;color:rgba(255,255,255,.32);font-weight:500;letter-spacing:.04em}
+footer span{color:rgba(255,255,255,.6)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px){
+  .hero-inner{flex-direction:column;gap:28px}
+  .about-grid{grid-template-columns:1fr;gap:28px}
+  .about-visual{max-width:180px;margin:0 auto}
+  .contact-grid{grid-template-columns:1fr}
+}
+@media(max-width:480px){
+  .section{padding:52px 0}
+  .cards-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="wrap nav-inner">
+    <span class="nav-brand">Sarah Oladiran</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#video">Video Editing</a></li>
+      <li><a href="#design">Graphic Design</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li class="ncta"><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-inner">
+      <div class="hero-avatar">🎬</div>
+      <div class="hero-copy">
+        <div class="hero-badge">Available for projects</div>
+        <h1>Sarah Oladiran<br/><em>Digital Creator &amp; Video Editor</em></h1>
+        <p class="hero-sub">Video editing, Graphic Design, and Social Media Content — crafted with precision and creativity.</p>
+        <div class="hero-btns">
+          <a href="#video" class="btn btn-light">▶ View Work</a>
+          <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section section-alt" id="about">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="about-visual rv">🎨</div>
+      <div class="about-body rv d1">
+        <div class="sec-tag">About Me</div>
+        <h2 class="sec-title">Who I Am</h2>
+        <p style="margin-top:14px">
+          I am a digital creator and developer with experience producing video content,
+          editing social media videos, and designing graphics. I'm passionate about
+          combining creativity with technology to produce engaging content for digital platforms.
+        </p>
+        <p>
+          From short-form TikTok edits to full YouTube vlogs, I bring stories to life through
+          intentional cuts, captions, and soundscapes that connect with audiences.
+        </p>
+        <div class="chips">
+          <span class="chip">🎬 Video Editor</span>
+          <span class="chip">🎨 Graphic Designer</span>
+          <span class="chip">📱 Social Media Content</span>
+          <span class="chip">✨ Digital Creator</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO EDITING -->
+<section class="section" id="video">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="sec-tag">Portfolio</div>
+      <h2 class="sec-title">Video Editing</h2>
+      <p class="sec-desc">Short-form and long-form video content edited for maximum engagement across social platforms.</p>
+    </div>
+    <div class="cards-grid">
+
+      <!-- Card 1 — replace the vid-ph div with an iframe when you have a YouTube link -->
+      <div class="card rv d1">
+        <div class="vid-thumb" onclick="openModal('mv1')">
+          <!-- TO ADD VIDEO: remove the div.vid-ph below and add:
+               <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe> -->
+          <div class="vid-ph">
+            <div class="play-ring">▶</div>
+            <span class="vid-lbl">Click to preview</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">TikTok · CapCut</div>
+          <h3 class="card-title">Short-form TikTok Edit – CapCut</h3>
+          <p class="card-desc">Fast-paced editing with trending transitions and effects optimised for viral potential on TikTok and Instagram Reels.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('mv1')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Short-form TikTok Edit')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="card rv d2">
+        <div class="vid-thumb" onclick="openModal('mv2')">
+          <div class="vid-ph">
+            <div class="play-ring">▶</div>
+            <span class="vid-lbl">Click to preview</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">YouTube · CapCut</div>
+          <h3 class="card-title">YouTube Vlog Edit – CapCut</h3>
+          <p class="card-desc">Edited using CapCut with pacing cuts, captions and music to improve engagement for short-form social media content.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('mv2')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('YouTube Vlog Edit')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="card rv d3">
+        <div class="vid-thumb" onclick="openModal('mv3')">
+          <div class="vid-ph">
+            <div class="play-ring">▶</div>
+            <span class="vid-lbl">Click to preview</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">AI-Assisted · Filmora 13</div>
+          <h3 class="card-title">AI-Assisted Video Edit – Filmora</h3>
+          <p class="card-desc">Leveraging AI tools for colour grading, auto-captioning, and intelligent scene detection to streamline the editing workflow.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('mv3')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('AI-Assisted Video Edit')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GRAPHIC DESIGN -->
+<section class="section section-alt" id="design">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="sec-tag">Portfolio</div>
+      <h2 class="sec-title">Graphic Design</h2>
+      <p class="sec-desc">Visual content crafted in Canva and Figma for digital marketing and social media campaigns.</p>
+    </div>
+    <div class="cards-grid">
+
+      <!-- Design Card 1 -->
+      <div class="card rv d1">
+        <div class="img-thumb">
+          <!-- TO ADD IMAGE: replace the div.img-ph below with:
+               <img src="your-image.jpg" alt="Canva Social Media Graphic"/> -->
+          <div class="img-ph">
+            <div class="ph-ico">🖼️</div>
+            <span class="ph-lbl">Upload your image</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Social Media · Canva</div>
+          <h3 class="card-title">Canva Social Media Graphic</h3>
+          <p class="card-desc">Professional social media graphic designed in Canva with consistent branding, typography, and visual hierarchy for maximum impact.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('md1')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Canva Social Media Graphic')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Card 2 -->
+      <div class="card rv d2">
+        <div class="img-thumb">
+          <div class="img-ph">
+            <div class="ph-ico">🖼️</div>
+            <span class="ph-lbl">Upload your image</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Promotional · Canva</div>
+          <h3 class="card-title">Promotional Social Media Graphic</h3>
+          <p class="card-desc">Eye-catching promotional materials featuring bold typography, strategic colour palettes, and compelling visual storytelling.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('md2')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Promotional Design')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Design Card 3 -->
+      <div class="card rv d3">
+        <div class="img-thumb">
+          <div class="img-ph">
+            <div class="ph-ico">🖼️</div>
+            <span class="ph-lbl">Upload your image</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">Digital Marketing · Figma</div>
+          <h3 class="card-title">Promotional Design – Canva</h3>
+          <p class="card-desc">Designed for digital marketing campaigns to engage social audiences with clean layout and strong brand identity.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('md3')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Promotional Design')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section class="section" id="skills">
+  <div class="wrap">
+    <div class="sec-hd rv">
+      <div class="sec-tag">Expertise</div>
+      <h2 class="sec-title">Tools &amp; Skills</h2>
+      <p class="sec-desc">The creative stack I use to take ideas from concept to final output.</p>
+    </div>
+    <div class="skills-grid">
+      <div class="sk-card rv d1">
+        <div class="sk-ico">🎬</div>
+        <h4>Video Editing</h4>
+        <div class="sk-tags">
+          <span class="sk-tag">Filmora 13</span>
+          <span class="sk-tag">CapCut</span>
+          <span class="sk-tag">Transitions</span>
+          <span class="sk-tag">Captions</span>
+          <span class="sk-tag">Colour Grading</span>
+        </div>
+      </div>
+      <div class="sk-card rv d2">
+        <div class="sk-ico">🎨</div>
+        <h4>Graphic Design</h4>
+        <div class="sk-tags">
+          <span class="sk-tag">Canva</span>
+          <span class="sk-tag">Figma</span>
+          <span class="sk-tag">Branding</span>
+          <span class="sk-tag">Typography</span>
+          <span class="sk-tag">Layout</span>
+        </div>
+      </div>
+      <div class="sk-card rv d3">
+        <div class="sk-ico">📱</div>
+        <h4>Digital Platforms</h4>
+        <div class="sk-tags">
+          <span class="sk-tag">YouTube</span>
+          <span class="sk-tag">TikTok</span>
+          <span class="sk-tag">Instagram</span>
+          <span class="sk-tag">Reels</span>
+          <span class="sk-tag">Shorts</span>
+        </div>
+      </div>
+      <div class="sk-card rv d4">
+        <div class="sk-ico">🤖</div>
+        <h4>AI-Assisted Content</h4>
+        <div class="sk-tags">
+          <span class="sk-tag">Auto-Captions</span>
+          <span class="sk-tag">AI Colour</span>
+          <span class="sk-tag">Scene Detection</span>
+          <span class="sk-tag">Content Gen</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="wrap">
+    <div class="contact-grid">
+      <div class="contact-left rv">
+        <div class="sec-tag">Contact</div>
+        <h2>Let's Work<br/>Together</h2>
+        <p style="margin-top:12px">
+          Have a project in mind? Whether it's a short-form edit, a full video
+          production, or a graphic design brief — I'd love to hear from you.
+        </p>
+      </div>
+      <div class="c-items rv d2">
+        <a href="mailto:iam.sarah.osadam@gmail.com" class="c-item">
+          <div class="c-ico">✉️</div>
+          <div class="c-info">
+            <strong>Email</strong>
+            <span>iam.sarah.osadam@gmail.com</span>
+          </div>
+        </a>
+        <!-- Update href to your LinkedIn URL -->
+        <a href="#" class="c-item">
+          <div class="c-ico">💼</div>
+          <div class="c-info">
+            <strong>LinkedIn</strong>
+            <span>Connect with me</span>
+          </div>
+        </a>
+        <!-- Update href to your Instagram URL -->
+        <a href="#" class="c-item">
+          <div class="c-ico">📸</div>
+          <div class="c-info">
+            <strong>Instagram</strong>
+            <span>@iamsarahosadam</span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <p>© 2025 <span>Sarah Oladiran</span>. All rights reserved.</p>
+  </div>
+</footer>
+
+<!-- MODALS — Video -->
+<div class="overlay" id="mv1" onclick="closeOuter(event,'mv1')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Short-form TikTok Edit – CapCut</h3>
+      <button class="modal-close" onclick="closeModal('mv1')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-vid">
+        <!-- Replace with: <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe> -->
+        <div class="modal-empty">
+          📽️ Add your YouTube embed here.<br/>
+          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
+        </div>
+      </div>
+      <p class="modal-desc">Fast-paced editing with trending transitions and effects optimised for viral potential on TikTok and Instagram Reels.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="mv2" onclick="closeOuter(event,'mv2')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>YouTube Vlog Edit – CapCut</h3>
+      <button class="modal-close" onclick="closeModal('mv2')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-vid">
+        <div class="modal-empty">
+          📽️ Add your YouTube embed here.<br/>
+          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
+        </div>
+      </div>
+      <p class="modal-desc">Edited using CapCut with pacing cuts, captions and music to improve engagement for short-form social media content.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="mv3" onclick="closeOuter(event,'mv3')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>AI-Assisted Video Edit – Filmora</h3>
+      <button class="modal-close" onclick="closeModal('mv3')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-vid">
+        <div class="modal-empty">
+          📽️ Add your YouTube embed here.<br/>
+          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
+        </div>
+      </div>
+      <p class="modal-desc">Leveraging AI tools for colour grading, auto-captioning, and intelligent scene detection to streamline the editing workflow.</p>
+    </div>
+  </div>
+</div>
+
+<!-- MODALS — Design -->
+<div class="overlay" id="md1" onclick="closeOuter(event,'md1')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Canva Social Media Graphic</h3>
+      <button class="modal-close" onclick="closeModal('md1')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-img">🖼️</div>
+      <p class="modal-desc">Professional social media graphic designed in Canva with consistent branding, typography, and visual hierarchy for maximum impact.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="md2" onclick="closeOuter(event,'md2')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Promotional Social Media Graphic</h3>
+      <button class="modal-close" onclick="closeModal('md2')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-img">🖼️</div>
+      <p class="modal-desc">Eye-catching promotional materials featuring bold typography, strategic colour palettes, and compelling visual storytelling.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="md3" onclick="closeOuter(event,'md3')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Promotional Design – Canva</h3>
+      <button class="modal-close" onclick="closeModal('md3')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-img">🖼️</div>
+      <p class="modal-desc">Designed for digital marketing campaigns to engage social audiences with clean layout and strong brand identity.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+// Modals
+function openModal(id){document.getElementById(id).classList.add('on');document.body.style.overflow='hidden'}
+function closeModal(id){document.getElementById(id).classList.remove('on');document.body.style.overflow=''}
+function closeOuter(e,id){if(e.target===e.currentTarget)closeModal(id)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.overlay.on').forEach(o=>{o.classList.remove('on');document.body.style.overflow=''})})
+
+// Share
+function shareMe(title){
+  if(navigator.share){navigator.share({title:title+' — Sarah Oladiran',url:location.href})}
+  else{navigator.clipboard.writeText(location.href);alert('Link copied!')}
+}
+
+// Scroll reveal
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})
+},{threshold:0.12})
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el))
+</script>
+</body>
+</html>
