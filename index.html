@@ -87,11 +87,12 @@ a{color:var(--navy);text-decoration:none}
   display:flex;align-items:center;gap:48px;flex-wrap:wrap;
 }
 .hero-avatar{
-  width:96px;height:96px;flex-shrink:0;border-radius:50%;
-  background:rgba(255,255,255,.09);border:2px solid rgba(255,255,255,.2);
-  display:flex;align-items:center;justify-content:center;
-  font-size:2.6rem;animation:fadeIn .7s ease;
+  width:140px;height:140px;flex-shrink:0;border-radius:50%;
+  background:rgba(255,255,255,.09);border:3px solid rgba(255,255,255,.3);
+  overflow:hidden;animation:fadeIn .7s ease;
+  box-shadow:0 0 0 6px rgba(110,231,183,.18),0 0 28px 8px rgba(110,231,183,.28),0 0 56px 16px rgba(110,231,183,.12);
 }
+.hero-avatar img{width:100%;height:100%;object-fit:cover;display:block}
 @keyframes fadeIn{from{opacity:0}to{opacity:1}}
 .hero-copy{flex:1;min-width:260px}
 .hero-badge{
@@ -157,9 +158,9 @@ a{color:var(--navy);text-decoration:none}
 .about-visual{
   aspect-ratio:1;border-radius:var(--r);
   background:linear-gradient(140deg,var(--navy) 0%,var(--navy2) 100%);
-  display:flex;align-items:center;justify-content:center;
-  font-size:3.6rem;box-shadow:var(--shadow-lg);
+  overflow:hidden;box-shadow:var(--shadow-lg);
 }
+.about-visual img{width:100%;height:100%;object-fit:cover;display:block}
 .about-body p{font-size:.93rem;color:var(--text2);line-height:1.85;margin-bottom:14px}
 .chips{display:flex;flex-wrap:wrap;gap:7px;margin-top:4px}
 .chip{
@@ -183,13 +184,14 @@ a{color:var(--navy);text-decoration:none}
   background:var(--navy);overflow:hidden;cursor:pointer;
 }
 .vid-thumb iframe{position:absolute;inset:0;width:100%;height:100%;border:none}
+.vid-thumb video,.vid-thumb>.yt-thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;pointer-events:none}
 .vid-ph{
   position:absolute;inset:0;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  background:linear-gradient(135deg,#1b2a3b 0%,#243650 100%);
+  background:linear-gradient(135deg,rgba(27,42,59,.52) 0%,rgba(36,54,80,.52) 100%);
   transition:background .2s;
 }
-.vid-thumb:hover .vid-ph{background:linear-gradient(135deg,#243650 0%,#2f4a68 100%)}
+.vid-thumb:hover .vid-ph{background:linear-gradient(135deg,rgba(36,54,80,.42) 0%,rgba(47,74,104,.42) 100%)}
 .play-ring{
   width:50px;height:50px;border-radius:50%;
   border:2px solid rgba(255,255,255,.26);
@@ -300,6 +302,8 @@ a{color:var(--navy);text-decoration:none}
 .modal-bd{padding:22px}
 .modal-vid{aspect-ratio:16/9;border-radius:8px;overflow:hidden;background:var(--navy)}
 .modal-vid iframe{width:100%;height:100%;border:none}
+.modal-vid video{width:100%;height:100%;object-fit:contain;display:block}
+.modal-img img{width:100%;height:100%;object-fit:contain;display:block}
 .modal-empty{
   width:100%;height:100%;
   display:flex;flex-direction:column;align-items:center;justify-content:center;
@@ -368,7 +372,7 @@ footer span{color:rgba(255,255,255,.6)}
 <section class="section section-alt" id="about">
   <div class="wrap">
     <div class="about-grid">
-      <div class="about-visual rv">🎨</div>
+      <div class="about-visual rv"><img src="profile-image.jpg" alt="Sarah Oladiran"/></div>
       <div class="about-body rv d1">
         <div class="sec-tag">About Me</div>
         <h2 class="sec-title">Who I Am</h2>
@@ -402,23 +406,22 @@ footer span{color:rgba(255,255,255,.6)}
     </div>
     <div class="cards-grid">
 
-      <!-- Card 1 — replace the vid-ph div with an iframe when you have a YouTube link -->
+      <!-- Card 1 -->
       <div class="card rv d1">
         <div class="vid-thumb" onclick="openModal('mv1')">
-          <!-- TO ADD VIDEO: remove the div.vid-ph below and add:
-               <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe> -->
+          <video src="Kitchen%20Refurbishment%20ShowcaseKitchen%20Refurbishment%20Showcase.mp4#t=0.1" muted preload="metadata"></video>
           <div class="vid-ph">
             <div class="play-ring">▶</div>
             <span class="vid-lbl">Click to preview</span>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">TikTok · CapCut</div>
-          <h3 class="card-title">Short-form TikTok Edit – CapCut</h3>
-          <p class="card-desc">Fast-paced editing with trending transitions and effects optimised for viral potential on TikTok and Instagram Reels.</p>
+          <div class="card-cat">Interior · CapCut</div>
+          <h3 class="card-title">Kitchen Refurbishment Showcase</h3>
+          <p class="card-desc">Short video capturing a newly refurbished kitchen space. Edited using CapCut with smooth cuts and framing to highlight the details and visual appeal of the interior.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('mv1')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('Short-form TikTok Edit')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Kitchen Refurbishment Showcase')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -426,18 +429,19 @@ footer span{color:rgba(255,255,255,.6)}
       <!-- Card 2 -->
       <div class="card rv d2">
         <div class="vid-thumb" onclick="openModal('mv2')">
+          <video src="Website%20Redesign%20Showcase.mp4#t=0.1" muted preload="metadata"></video>
           <div class="vid-ph">
             <div class="play-ring">▶</div>
             <span class="vid-lbl">Click to preview</span>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">YouTube · CapCut</div>
-          <h3 class="card-title">YouTube Vlog Edit – CapCut</h3>
-          <p class="card-desc">Edited using CapCut with pacing cuts, captions and music to improve engagement for short-form social media content.</p>
+          <div class="card-cat">Screen Recording · CapCut</div>
+          <h3 class="card-title">Website Redesign Showcase</h3>
+          <p class="card-desc">A short before-and-after video demonstrating changes made to a portfolio website. Combined webcam recording and screen capture to present the development process and final design.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('mv2')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('YouTube Vlog Edit')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Website Redesign Showcase')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -445,18 +449,59 @@ footer span{color:rgba(255,255,255,.6)}
       <!-- Card 3 -->
       <div class="card rv d3">
         <div class="vid-thumb" onclick="openModal('mv3')">
+          <video src="TikTok%20Dance%20Challenge.mp4#t=0.1" muted preload="metadata"></video>
           <div class="vid-ph">
             <div class="play-ring">▶</div>
             <span class="vid-lbl">Click to preview</span>
           </div>
         </div>
         <div class="card-body">
-          <div class="card-cat">AI-Assisted · Filmora 13</div>
-          <h3 class="card-title">AI-Assisted Video Edit – Filmora</h3>
-          <p class="card-desc">Leveraging AI tools for colour grading, auto-captioning, and intelligent scene detection to streamline the editing workflow.</p>
+          <div class="card-cat">TikTok · Short-form</div>
+          <h3 class="card-title">TikTok Dance Challenge</h3>
+          <p class="card-desc">Edited a fast-paced TikTok video with quick cuts and timing aligned to music to create an engaging short-form social media clip.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('mv3')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('AI-Assisted Video Edit')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('TikTok Dance Challenge')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="card rv d4">
+        <div class="vid-thumb" onclick="openModal('mv4')">
+          <video src="Dinner%20Party%20Highlight.mp4#t=0.1" muted preload="metadata"></video>
+          <div class="vid-ph">
+            <div class="play-ring">▶</div>
+            <span class="vid-lbl">Click to preview</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">TikTok · Highlight</div>
+          <h3 class="card-title">Dinner Party Highlight</h3>
+          <p class="card-desc">Short highlight video capturing moments from a dinner party. Edited to emphasize food presentation, atmosphere, and key moments suitable for social media sharing.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('mv4')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Dinner Party Highlight')">⬆ Share</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="card rv d4">
+        <div class="vid-thumb" onclick="openModal('mv5')">
+          <img class="yt-thumb" src="https://img.youtube.com/vi/a022NRHen4M/hqdefault.jpg" alt="Hospital Journey Vlog"/>
+          <div class="vid-ph">
+            <div class="play-ring">▶</div>
+            <span class="vid-lbl">Click to preview</span>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="card-cat">YouTube · Long-form</div>
+          <h3 class="card-title">Hospital Journey Vlog</h3>
+          <p class="card-desc">Produced and edited a narrative vlog documenting a hospital visit. Includes a structured introduction, storytelling segments, and a concluding reflection to create a complete viewing experience.</p>
+          <div class="card-actions">
+            <button class="cbtn cbtn-dark" onclick="openModal('mv5')">View Details</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Hospital Journey Vlog')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -478,20 +523,15 @@ footer span{color:rgba(255,255,255,.6)}
       <!-- Design Card 1 -->
       <div class="card rv d1">
         <div class="img-thumb">
-          <!-- TO ADD IMAGE: replace the div.img-ph below with:
-               <img src="your-image.jpg" alt="Canva Social Media Graphic"/> -->
-          <div class="img-ph">
-            <div class="ph-ico">🖼️</div>
-            <span class="ph-lbl">Upload your image</span>
-          </div>
+          <img src="graphicdesigns/Website%20Promotional%20Mockup.png" alt="Website Promotional Mockup"/>
         </div>
         <div class="card-body">
-          <div class="card-cat">Social Media · Canva</div>
-          <h3 class="card-title">Canva Social Media Graphic</h3>
-          <p class="card-desc">Professional social media graphic designed in Canva with consistent branding, typography, and visual hierarchy for maximum impact.</p>
+          <div class="card-cat">Digital Campaign · Canva</div>
+          <h3 class="card-title">Website Promotional Mockup</h3>
+          <p class="card-desc">Designed a promotional graphic to showcase and promote a website online. Focused on layout clarity and visual hierarchy to communicate the platform effectively.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('md1')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('Canva Social Media Graphic')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Website Promotional Mockup')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -499,18 +539,15 @@ footer span{color:rgba(255,255,255,.6)}
       <!-- Design Card 2 -->
       <div class="card rv d2">
         <div class="img-thumb">
-          <div class="img-ph">
-            <div class="ph-ico">🖼️</div>
-            <span class="ph-lbl">Upload your image</span>
-          </div>
+          <img src="graphicdesigns/Restaurant%20Menu%20Design.png" alt="Restaurant Menu Design"/>
         </div>
         <div class="card-body">
-          <div class="card-cat">Promotional · Canva</div>
-          <h3 class="card-title">Promotional Social Media Graphic</h3>
-          <p class="card-desc">Eye-catching promotional materials featuring bold typography, strategic colour palettes, and compelling visual storytelling.</p>
+          <div class="card-cat">Food &amp; Drinks · Canva</div>
+          <h3 class="card-title">Restaurant Menu Design</h3>
+          <p class="card-desc">Created a restaurant-style menu layout displaying food and drink items with a clear structure and visually balanced typography.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('md2')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('Promotional Design')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Restaurant Menu Design')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -518,18 +555,15 @@ footer span{color:rgba(255,255,255,.6)}
       <!-- Design Card 3 -->
       <div class="card rv d3">
         <div class="img-thumb">
-          <div class="img-ph">
-            <div class="ph-ico">🖼️</div>
-            <span class="ph-lbl">Upload your image</span>
-          </div>
+          <img src="graphicdesigns/Wedding%20Announcement%20Newspaper.png" alt="Wedding Announcement Newspaper"/>
         </div>
         <div class="card-body">
-          <div class="card-cat">Digital Marketing · Figma</div>
-          <h3 class="card-title">Promotional Design – Canva</h3>
-          <p class="card-desc">Designed for digital marketing campaigns to engage social audiences with clean layout and strong brand identity.</p>
+          <div class="card-cat">Event Design · Canva</div>
+          <h3 class="card-title">Wedding Announcement Newspaper</h3>
+          <p class="card-desc">Designed a newspaper-style wedding announcement layout combining editorial typography and structured sections to present event information creatively.</p>
           <div class="card-actions">
             <button class="cbtn cbtn-dark" onclick="openModal('md3')">View Details</button>
-            <button class="cbtn cbtn-line" onclick="shareMe('Promotional Design')">⬆ Share</button>
+            <button class="cbtn cbtn-line" onclick="shareMe('Wedding Announcement Newspaper')">⬆ Share</button>
           </div>
         </div>
       </div>
@@ -622,8 +656,7 @@ footer span{color:rgba(255,255,255,.6)}
             <span>Connect with me</span>
           </div>
         </a>
-        <!-- Update href to your Instagram URL -->
-        <a href="#" class="c-item">
+        <a href="https://www.instagram.com/oladiran.sarah.1" target="_blank" rel="noopener" class="c-item">
           <div class="c-ico">📸</div>
           <div class="c-info">
             <strong>Instagram</strong>
@@ -646,18 +679,14 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="mv1" onclick="closeOuter(event,'mv1')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>Short-form TikTok Edit – CapCut</h3>
+      <h3>Kitchen Refurbishment Showcase</h3>
       <button class="modal-close" onclick="closeModal('mv1')">✕</button>
     </div>
     <div class="modal-bd">
       <div class="modal-vid">
-        <!-- Replace with: <iframe src="https://www.youtube.com/embed/YOUR_ID" allowfullscreen></iframe> -->
-        <div class="modal-empty">
-          📽️ Add your YouTube embed here.<br/>
-          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
-        </div>
+        <video src="Kitchen%20Refurbishment%20ShowcaseKitchen%20Refurbishment%20Showcase.mp4" controls preload="metadata"></video>
       </div>
-      <p class="modal-desc">Fast-paced editing with trending transitions and effects optimised for viral potential on TikTok and Instagram Reels.</p>
+      <p class="modal-desc">Short video capturing a newly refurbished kitchen space. Edited using CapCut with smooth cuts and framing to highlight the details and visual appeal of the interior.</p>
     </div>
   </div>
 </div>
@@ -665,17 +694,14 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="mv2" onclick="closeOuter(event,'mv2')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>YouTube Vlog Edit – CapCut</h3>
+      <h3>Website Redesign Showcase</h3>
       <button class="modal-close" onclick="closeModal('mv2')">✕</button>
     </div>
     <div class="modal-bd">
       <div class="modal-vid">
-        <div class="modal-empty">
-          📽️ Add your YouTube embed here.<br/>
-          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
-        </div>
+        <video src="Website%20Redesign%20Showcase.mp4" controls preload="metadata"></video>
       </div>
-      <p class="modal-desc">Edited using CapCut with pacing cuts, captions and music to improve engagement for short-form social media content.</p>
+      <p class="modal-desc">A short before-and-after video demonstrating changes made to a portfolio website. Combined webcam recording and screen capture to present the development process and final design.</p>
     </div>
   </div>
 </div>
@@ -683,17 +709,44 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="mv3" onclick="closeOuter(event,'mv3')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>AI-Assisted Video Edit – Filmora</h3>
+      <h3>TikTok Dance Challenge</h3>
       <button class="modal-close" onclick="closeModal('mv3')">✕</button>
     </div>
     <div class="modal-bd">
       <div class="modal-vid">
-        <div class="modal-empty">
-          📽️ Add your YouTube embed here.<br/>
-          Replace the <code>div.modal-empty</code> with an <code>&lt;iframe&gt;</code>.
-        </div>
+        <video src="TikTok%20Dance%20Challenge.mp4" controls preload="metadata"></video>
       </div>
-      <p class="modal-desc">Leveraging AI tools for colour grading, auto-captioning, and intelligent scene detection to streamline the editing workflow.</p>
+      <p class="modal-desc">Edited a fast-paced TikTok video with quick cuts and timing aligned to music to create an engaging short-form social media clip.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="mv4" onclick="closeOuter(event,'mv4')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Dinner Party Highlight</h3>
+      <button class="modal-close" onclick="closeModal('mv4')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-vid">
+        <video src="Dinner%20Party%20Highlight.mp4" controls preload="metadata"></video>
+      </div>
+      <p class="modal-desc">Short highlight video capturing moments from a dinner party. Edited to emphasize food presentation, atmosphere, and key moments suitable for social media sharing.</p>
+    </div>
+  </div>
+</div>
+
+<div class="overlay" id="mv5" onclick="closeOuter(event,'mv5')">
+  <div class="modal">
+    <div class="modal-hd">
+      <h3>Hospital Journey Vlog</h3>
+      <button class="modal-close" onclick="closeModal('mv5')">✕</button>
+    </div>
+    <div class="modal-bd">
+      <div class="modal-vid">
+        <iframe src="https://www.youtube.com/embed/a022NRHen4M" allowfullscreen></iframe>
+      </div>
+      <p class="modal-desc">Produced and edited a narrative vlog documenting a hospital visit. Includes a structured introduction, storytelling segments, and a concluding reflection to create a complete viewing experience.</p>
     </div>
   </div>
 </div>
@@ -702,12 +755,12 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="md1" onclick="closeOuter(event,'md1')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>Canva Social Media Graphic</h3>
+      <h3>Website Promotional Mockup</h3>
       <button class="modal-close" onclick="closeModal('md1')">✕</button>
     </div>
     <div class="modal-bd">
-      <div class="modal-img">🖼️</div>
-      <p class="modal-desc">Professional social media graphic designed in Canva with consistent branding, typography, and visual hierarchy for maximum impact.</p>
+      <div class="modal-img"><img src="graphicdesigns/Website%20Promotional%20Mockup.png" alt="Website Promotional Mockup"/></div>
+      <p class="modal-desc">Designed a promotional graphic to showcase and promote a website online. Focused on layout clarity and visual hierarchy to communicate the platform effectively.</p>
     </div>
   </div>
 </div>
@@ -715,12 +768,12 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="md2" onclick="closeOuter(event,'md2')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>Promotional Social Media Graphic</h3>
+      <h3>Restaurant Menu Design</h3>
       <button class="modal-close" onclick="closeModal('md2')">✕</button>
     </div>
     <div class="modal-bd">
-      <div class="modal-img">🖼️</div>
-      <p class="modal-desc">Eye-catching promotional materials featuring bold typography, strategic colour palettes, and compelling visual storytelling.</p>
+      <div class="modal-img"><img src="graphicdesigns/Restaurant%20Menu%20Design.png" alt="Restaurant Menu Design"/></div>
+      <p class="modal-desc">Created a restaurant-style menu layout displaying food and drink items with a clear structure and visually balanced typography.</p>
     </div>
   </div>
 </div>
@@ -728,12 +781,12 @@ footer span{color:rgba(255,255,255,.6)}
 <div class="overlay" id="md3" onclick="closeOuter(event,'md3')">
   <div class="modal">
     <div class="modal-hd">
-      <h3>Promotional Design – Canva</h3>
+      <h3>Wedding Announcement Newspaper</h3>
       <button class="modal-close" onclick="closeModal('md3')">✕</button>
     </div>
     <div class="modal-bd">
-      <div class="modal-img">🖼️</div>
-      <p class="modal-desc">Designed for digital marketing campaigns to engage social audiences with clean layout and strong brand identity.</p>
+      <div class="modal-img"><img src="graphicdesigns/Wedding%20Announcement%20Newspaper.png" alt="Wedding Announcement Newspaper"/></div>
+      <p class="modal-desc">Designed a newspaper-style wedding announcement layout combining editorial typography and structured sections to present event information creatively.</p>
     </div>
   </div>
 </div>
